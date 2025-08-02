@@ -1,17 +1,38 @@
 public class TwoAugust {
     public static boolean arrayStringsAreEqual(String[] word1, String[] word2) {
-        StringBuilder sb1 =  new StringBuilder();
+        StringBuilder sb1 = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
 
-        for(String w: word1){
+        for (String w : word1) {
             sb1.append(w);
         }
-        for(String w: word2){
+        for (String w : word2) {
             sb2.append(w);
         }
         return sb1.toString().equals(sb2.toString());
     }
-    public static void main(String[] args) {
 
+    public static int strStr(String haystack, String needle) {
+             if(haystack.length() < needle.length()){
+                 return -1;
+             }
+
+             for(int i=0; i<haystack.length(); i++){
+                 int j=0;
+                 while(j<needle.length() && (i+j) < haystack.length()){
+                     if(needle.charAt(j) != haystack.charAt(i+j)){
+                         break;
+                     }
+                     j++;
+                 }
+
+                 if(j == needle.length()){
+                     return i;
+                 }
+             }
+             return -1;
+         }
+        public static void main (String[]args){
+
+        }
     }
-}
