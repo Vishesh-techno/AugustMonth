@@ -40,6 +40,15 @@ public class TwoAugust {
         return -1;
     }
 
+    public static String reverseWords(String s) {
+        String[] word = s.split(" ");
+        StringBuilder sb = new StringBuilder();
+        for (String words : word) {
+            sb.append(new StringBuilder(words).reverse().append(" "));
+        }
+        return sb.toString().trim();
+    }
+
     public static void main(String[] args) {
 
     }
