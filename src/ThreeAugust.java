@@ -29,7 +29,7 @@ public class ThreeAugust {
             res.add(matrix[y][x]);
             matrix[y][x] = -101; // the range of numbers in matrix is from -100 to 100
 
-            if (!(0 <= x + dx && x + dx < cols && 0 <= y + dy && y + dy < rows) || matrix[y+dy][x+dx] == -101) {
+            if (!(0 <= x + dx && x + dx < cols && 0 <= y + dy && y + dy < rows) || matrix[y + dy][x + dx] == -101) {
                 int temp = dx;
                 dx = -dy;
                 dy = temp;
