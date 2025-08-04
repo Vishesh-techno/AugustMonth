@@ -42,12 +42,28 @@ public class FourAugust {
         return result;
     }
 
+    public static int numIdenticalPairs(int[] nums) {
+        int cnt = 0;
+        for(int i=0; i<nums.length-1; i++){
+            for(int j=i+1; j<nums.length; j++){
+                if(nums[i] == nums[j]){
+                    cnt++;
+                }
+            }
+        }
+        return cnt;
+    }
+
     public static void main(String[] args) {
 
         int[] arr = {1, 2, 3, 4, 5, 6};
         System.out.println(Arrays.toString(runningSum(arr)));
 
         System.out.println(Arrays.toString(shuffleArray(arr, 3)));
+
+        System.out.println(kidsWithCandies(arr, 2));
+
+        System.out.println(numIdenticalPairs(arr));
 
     }
 }
