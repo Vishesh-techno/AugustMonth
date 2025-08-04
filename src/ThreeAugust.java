@@ -85,6 +85,36 @@ public class ThreeAugust {
     }
 
     public static void main(String[] args) {
+        ThreeAugust obj = new ThreeAugust();
 
+
+        int[] nums = {1, 2, 3, 4, 5, 6, 7};
+        int k = 3;
+        obj.rotate(nums, k);
+        System.out.print("Rotated Array: ");
+        for (int num : nums) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+
+        int[][] matrix = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+        List<Integer> spiral = obj.spiralOrder(matrix);
+        System.out.println("Spiral Order: " + spiral);
+
+
+        int n = 4;
+        int[][] generatedMatrix = obj.generateMatrix(n);
+        System.out.println("Generated Spiral Matrix:");
+        for (int[] row : generatedMatrix) {
+            for (int val : row) {
+                System.out.print(val + "\t");
+            }
+            System.out.println();
+        }
     }
 }
