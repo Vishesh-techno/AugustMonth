@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class ThreeAugust {
     public void rotate(int[] nums, int k) {
         k = k % nums.length;
