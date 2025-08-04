@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class FourAugust {
     public static int[] runningSum(int[] nums) {
@@ -44,12 +42,24 @@ public class FourAugust {
 
     public static int numIdenticalPairs(int[] nums) {
         int cnt = 0;
-        for(int i=0; i<nums.length-1; i++){
-            for(int j=i+1; j<nums.length; j++){
-                if(nums[i] == nums[j]){
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] == nums[j]) {
                     cnt++;
                 }
             }
+        }
+        return cnt;
+    }
+
+    public static int numIdenticalPairsOptimal(int[] nums) {
+        int cnt = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            if (map.containsKey(num)) {
+                cnt += map.get(num);
+            }
+            map.put(num, map.getOrDefault(num, 0) + 1);
         }
         return cnt;
     }
@@ -64,6 +74,8 @@ public class FourAugust {
         System.out.println(kidsWithCandies(arr, 2));
 
         System.out.println(numIdenticalPairs(arr));
+
+        System.out.println(numIdenticalPairsOptimal(arr));
 
     }
 }
