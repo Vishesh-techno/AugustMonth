@@ -111,6 +111,18 @@ public class FourAugust {
         return ans;
     }
 
+    public static int largestAltitude(int[] nums) {
+        int cs = 0;
+        int ms = 0;
+        for (int num : nums) {
+            cs += num;
+            if (cs > ms) {
+                ms = cs;
+            }
+        }
+        return ms;
+    }
+
     public static void main(String[] args) {
 
         int[] arr = {1, 2, 3, 4, 5, 6};
@@ -133,6 +145,8 @@ public class FourAugust {
         System.out.println(Arrays.toString(smallerNumbersThanCurrentOptimal(arr)));
 
         System.out.println(Arrays.toString(createTargetArray(arr1, index)));
+
+        System.out.println(largestAltitude(index));
 
     }
 }
