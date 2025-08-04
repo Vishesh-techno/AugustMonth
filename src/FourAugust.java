@@ -64,6 +64,40 @@ public class FourAugust {
         return cnt;
     }
 
+    public static int[] smallerNumbersThanCurrent(int[] nums) {
+        int[] ans = new int[nums.length];
+        int small;
+        for (int i = 0; i < nums.length; i++) {
+            small = 0;
+            for (int j = 0; j < nums.length; j++) {
+                if (nums[i] > nums[j]) {
+                    small++;
+                }
+            }
+            ans[i] = small;
+        }
+        return ans;
+    }
+
+    public static int[] smallerNumbersThanCurrentOptimal(int[] nums) {
+        int[] sorted = nums.clone();
+        Arrays.sort(sorted);
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < sorted.length; i++) {
+            if (!map.containsKey(sorted[i])) {
+                map.put(sorted[i], i);
+            }
+        }
+
+        int[] result = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            result[i] = map.get(nums[i]);
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
 
         int[] arr = {1, 2, 3, 4, 5, 6};
@@ -76,6 +110,10 @@ public class FourAugust {
         System.out.println(numIdenticalPairs(arr));
 
         System.out.println(numIdenticalPairsOptimal(arr));
+
+        System.out.println(Arrays.toString(smallerNumbersThanCurrent(arr)));
+
+        System.out.println(Arrays.toString(smallerNumbersThanCurrentOptimal(arr)));
 
     }
 }
