@@ -143,8 +143,6 @@ public class FiveAugust {
 
         System.out.println(removeDuplicatesOptimal(arr));
 
-//        System.out.println(rotate(arr, 54););
-
         rotate(arr, 53);
 
         System.out.println(Arrays.toString(arr));
