@@ -87,12 +87,25 @@ public class FiveAugust {
 
         int k = 1;
         for (int i = 1; i < n; i++) {
-            if (nums[i] != nums[j]) {
+            if (nums[i] != nums[i-1]) {
                 nums[k] = nums[i];
                 k++;
             }
         }
         return k;
+    }
+
+    public static int removeDuplicatesOptimal(int[] nums){
+        int n = nums.length;
+
+        int i = 0;
+        for(int j = 1; j< n; j++){
+            if(nums[i] != nums[j]){
+                i++;
+                nums[i] = nums[j];
+            }
+        }
+        return i+1;
     }
 
     public static void main(String[] args) {
@@ -109,6 +122,8 @@ public class FiveAugust {
         System.out.println(Arrays.toString(plusOne(arr)));
 
         System.out.println(removeDuplicates(arr));
+
+        System.out.println(removeDuplicatesOptimal(arr));
 
     }
 }
