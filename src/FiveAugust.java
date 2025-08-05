@@ -50,15 +50,15 @@ public class FiveAugust {
         int maxElement = Integer.MIN_VALUE;
 
 
-        for (int i = 0; i < nums.length; i++) {
-            cs = cs + nums[i];
+        for (int num : nums) {
+            cs = cs + num;
             if (cs < 0) {
                 cs = 0;
             }
             ms = Math.max(cs, ms);
 
-            if (nums[i] > maxElement) {
-                maxElement = nums[i];
+            if (num > maxElement) {
+                maxElement = num;
             }
         }
         if (ms == 0 && maxElement < 0) {
