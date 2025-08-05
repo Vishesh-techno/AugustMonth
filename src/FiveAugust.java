@@ -108,6 +108,24 @@ public class FiveAugust {
         return i + 1;
     }
 
+    public static void rotate(int[] nums, int k) {
+        k = k % nums.length;
+        revNum(nums, 0, nums.length - 1);
+        revNum(nums, 0, k - 1);
+        revNum(nums, k, nums.length - 1);
+    }
+
+    public static void revNum(int[] nums, int start, int end) {
+        while (start <= end) {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
+
     public static void main(String[] args) {
         int[] arr = {9, 2, 0, 9};
         int k = 34;
@@ -124,6 +142,12 @@ public class FiveAugust {
         System.out.println(removeDuplicates(arr));
 
         System.out.println(removeDuplicatesOptimal(arr));
+
+//        System.out.println(rotate(arr, 54););
+
+        rotate(arr, 53);
+
+        System.out.println(Arrays.toString(arr));
 
     }
 }
