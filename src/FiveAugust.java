@@ -67,8 +67,22 @@ public class FiveAugust {
         return ms;
     }
 
+    public static int[] plusOne(int[] nums) {
+        int[] result = new int[nums.length + 1];
+
+        for (int i = nums.length - 1; i >= 0; i--) {
+            if (nums[i] == 9) {
+                nums[i] = 0;
+            } else {
+                nums[i] = nums[i] + 1;
+                return nums;
+            }
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
-        int[] arr = {1, 2, 0, 0};
+        int[] arr = {9, 2, 0, 9};
         int k = 34;
         System.out.println(addToArrayForm(arr, k));
 
@@ -76,6 +90,9 @@ public class FiveAugust {
 
         System.out.println(Arrays.toString(twoSumOptimal(arr, 3)));
 
+        System.out.println(maxSubArray(arr));
+
+        System.out.println(Arrays.toString(plusOne(arr)));
 
     }
 }
