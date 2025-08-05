@@ -81,6 +81,20 @@ public class FiveAugust {
         return result;
     }
 
+    public static int removeDuplicates(int[] nums) {
+        int n = nums.length;
+        if (n == 0) return 0;
+
+        int k = 1;
+        for (int i = 1; i < n; i++) {
+            if (nums[i] != nums[j]) {
+                nums[k] = nums[i];
+                k++;
+            }
+        }
+        return k;
+    }
+
     public static void main(String[] args) {
         int[] arr = {9, 2, 0, 9};
         int k = 34;
@@ -93,6 +107,8 @@ public class FiveAugust {
         System.out.println(maxSubArray(arr));
 
         System.out.println(Arrays.toString(plusOne(arr)));
+
+        System.out.println(removeDuplicates(arr));
 
     }
 }
