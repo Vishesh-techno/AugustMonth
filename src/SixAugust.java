@@ -72,14 +72,33 @@ public class SixAugust {
         return false;
     }
 
+    public static char nextGreatestLetter(char[] letters, char target) {
+        int start = 0;
+        int end = letters.length-1;
+
+        while(start<=end){
+            int mid = start + (end-start)/2;
+            if(letters[mid] <= target){
+                start = mid + 1;
+            }else{
+                end = mid - 1;
+            }
+        }
+        return letters[start%letters.length];
+    }
+
     public static void main(String[] args) {
         int[] nums = {2, 4, 2, 5, 6, 1, 8, 5};
+
+        char[] ch = {'s', 'x', 'y'};
         int n = 100;
         System.out.println("Guessed number: " + guessNumber(n));
 
         System.out.println(Arrays.toString(twoSumII(nums, 15)));
 
         System.out.println(isPerfectSquare(45));
+
+        System.out.println(nextGreatestLetter(ch, 'p'));
 
     }
 }
