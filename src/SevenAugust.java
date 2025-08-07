@@ -45,6 +45,28 @@ public class SevenAugust {
         return start;
     }
 
+    public static int search(int[] nums, int target){
+        int start = 0;
+        int end = nums.length-1;
+
+        if(end < 0){
+            return -1;
+        }
+
+        while(start < end){
+            int mid = start + (end-start)/2;
+
+            if(nums[mid] == target){
+                return mid;
+            }else if(nums[mid] < target){
+                start = mid + 1;
+            }else{
+                end = mid - 1;
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
         int[] nums = {1, 3, 5, 6, 8, 9};
 
@@ -53,5 +75,7 @@ public class SevenAugust {
         System.out.println(peakIndexMountainArray(nums));
 
         System.out.println(peakIndexMountainArrayOptimal(nums));
+
+        System.out.println(search(nums, 5));
     }
 }
