@@ -45,22 +45,22 @@ public class SevenAugust {
         return start;
     }
 
-    public static int search(int[] nums, int target){
+    public static int search(int[] nums, int target) {
         int start = 0;
-        int end = nums.length-1;
+        int end = nums.length - 1;
 
-        if(end < 0){
+        if (end < 0) {
             return -1;
         }
 
-        while(start < end){
-            int mid = start + (end-start)/2;
+        while (start < end) {
+            int mid = start + (end - start) / 2;
 
-            if(nums[mid] == target){
+            if (nums[mid] == target) {
                 return mid;
-            }else if(nums[mid] < target){
+            } else if (nums[mid] < target) {
                 start = mid + 1;
-            }else{
+            } else {
                 end = mid - 1;
             }
         }
