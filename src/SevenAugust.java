@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class SevenAugust {
     public static int searchInsert(int[] nums, int target) {
         int start = 0;
@@ -45,6 +47,39 @@ public class SevenAugust {
         return start;
     }
 
+    public static int[] searchRange(int[] nums, int target) {
+        int[] result = {-1, -1};
+        int left = searchII(nums, target, true);
+        int right = searchII(nums, target, false);
+        result[0] = left;  // 3
+        result[1] = right; // 4
+        return result;
+    }
+
+    public static int searchII(int[] nums, int target, boolean isSearchLeft) {
+        int start = 0;
+        int end = nums.length - 1;
+        int index = -1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            if (nums[mid] == target) {
+                index = mid;
+                if (isSearchLeft) {
+                    end = mid - 1;
+                } else {
+                    start = mid + 1;
+                }
+            } else if (nums[mid] < target) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+        return index;
+    }
+
     public static int search(int[] nums, int target) {
         int start = 0;
         int end = nums.length - 1;
@@ -70,6 +105,8 @@ public class SevenAugust {
     public static void main(String[] args) {
         int[] nums = {1, 3, 5, 6, 8, 9};
 
+        int[] nums1 = {5, 7, 7, 8, 8, 8, 10};
+
         System.out.println(searchInsert(nums, 9));
 
         System.out.println(peakIndexMountainArray(nums));
@@ -77,5 +114,7 @@ public class SevenAugust {
         System.out.println(peakIndexMountainArrayOptimal(nums));
 
         System.out.println(search(nums, 5));
+
+        System.out.println(Arrays.toString(searchRange(nums1, 8)));
     }
 }
