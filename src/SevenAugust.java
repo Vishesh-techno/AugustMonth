@@ -16,9 +16,27 @@ public class SevenAugust {
         }
         return start;
     }
+
+    public static int peakIndexMountainArray(int[] nums){
+        int max = Integer.MIN_VALUE;
+        int ans = 0;
+        for(int i=0; i<nums.length; i++){
+            if(max < nums[i]){
+                max = nums[i];
+                ans = i;
+            }
+        }
+        return ans;
+    }
+
+//    public static int peakIndexMountainArrayOptimal(int[] nums){
+//
+//    }
     public static void main(String[] args) {
         int[] nums = {1,3,5,6,8,9};
 
         System.out.println(searchInsert(nums, 9));
+
+        System.out.println(peakIndexMountainArray(nums));
     }
 }
