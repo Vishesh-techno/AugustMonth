@@ -164,6 +164,6 @@ public class SevenAugust {
 
         System.out.println(singleNonDuplicates(nums2));
 
-        System.out.println(singleNonDuplicates(nums2));
+        System.out.println(singleNonDuplicateOptimal(nums2));
     }
 }

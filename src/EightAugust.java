@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class EightAugust {
     public static String defangIPaddr(String address) {
         StringBuilder result = new StringBuilder();
@@ -58,6 +60,49 @@ public class EightAugust {
         // return s.toLowerCase();
     }
 
+    public static int singleNonDuplicates(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        for (int key : map.keySet()) {
+            if (map.get(key) == 1) {
+                return key;
+            }
+        }
+
+        return -1;
+    }
+
+    public static int singleNonDuplicateOptimal(int[] nums) {
+        int n = nums.length;
+        if (n == 0) {
+            return -1;
+        } else if (nums[0] != nums[1]) {
+            return nums[0];
+        } else if (nums[n - 1] != nums[n - 2]) {
+            return nums[n - 1];
+        }
+        int start = 1;
+        int end = nums.length - 2;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            if (nums[mid] != nums[mid + 1] && nums[mid] != nums[mid - 1]) {
+                return nums[mid];
+            } else if ((mid % 2 == 1 && nums[mid] == nums[mid - 1]) || (mid % 2 == 0 && nums[mid] == nums[mid + 1])) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+
     public static void main(String[] args) {
         String str = "1.1.1.1";
 
@@ -67,6 +112,8 @@ public class EightAugust {
 
         int[] arr = {4, 5, 6, 7, 0, 2, 1, 3};
 
+        int[] nums2 = {1, 1, 2, 3, 3, 4, 4, 8, 8};
+
         System.out.println(defangIPaddr(str));
 
         System.out.println(interpret(goal));
@@ -75,6 +122,9 @@ public class EightAugust {
 
         toLowerCase(str1);
 
+        System.out.println(singleNonDuplicates(nums2));
+
+        System.out.println(singleNonDuplicateOptimal(nums2));
 
     }
 }
