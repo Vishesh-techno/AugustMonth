@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class NineAugust {
     public static double[] convertTemperature(double celsius) {
@@ -32,7 +34,7 @@ public class NineAugust {
 
             map.put(nums[i], i);
         }
-        return null;
+        return new int[]{0, 0};
     }
 
 
@@ -48,6 +50,20 @@ public class NineAugust {
         return new int[]{0, 0};
     }
 
+    public static int maxProfit(int[] prices) {
+        int min = Integer.MAX_VALUE;
+        int max = 0;
+        for(int i=0; i<prices.length; i++){
+            if(prices[i]<min){
+                min = prices[i];
+            }
+            if(prices[i]-min > max){
+                max = prices[i] - min;
+            }
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
 
         int[] nums = {2, 7, 11, 15};
@@ -56,6 +72,8 @@ public class NineAugust {
 
         System.out.println(Arrays.toString(twoSum(nums, 5)));
 
-        System.out.println(Arrays.toString(twoSumOptimal(nums, 19)));
+        System.out.println(Arrays.toString(twoSumOptimal(nums, 18)));
+
+        System.out.println(maxProfit(nums));
     }
 }
