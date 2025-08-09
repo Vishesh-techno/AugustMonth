@@ -11,7 +11,7 @@ public class NineAugust {
         // System.out.println(kelvin, fahranheit);
     }
 
-    public int[] twoSumOptimal(int[] nums, int target) {
+    public static int[] twoSumOptimal(int[] nums, int target) {
         // int n = nums.length;
         // for(int i=0; i<n-1; i++){
         //     for(int j=i+1; j<n; j++){
@@ -36,7 +36,7 @@ public class NineAugust {
     }
 
 
-    public int[] twoSum(int[] nums, int target) {
+    public static int[] twoSum(int[] nums, int target) {
         int n = nums.length;
         for (int i = 0; i < n - 1; i++) {
             for (int j = i + 1; j < n; j++) {
@@ -49,6 +49,13 @@ public class NineAugust {
     }
 
     public static void main(String[] args) {
+
+        int[] nums = {2, 7, 11, 15};
+
         System.out.println(Arrays.toString(convertTemperature(24)));
+
+        System.out.println(Arrays.toString(twoSum(nums, 5)));
+
+        System.out.println(Arrays.toString(twoSumOptimal(nums, 19)));
     }
 }
