@@ -49,11 +49,22 @@ public class ThirteenAugust {
     }
 
     public static boolean isPowerOfThree(int n) {
-        if (n <= 0) return false; // powers of 3 are positive
-        while (n % 3 == 0) {
-            n /= 3; // keep dividing by 3
+//        if (n <= 0) return false; // powers of 3 are positive
+//        while (n % 3 == 0) {
+//            n /= 3; // keep dividing by 3
+//        }
+//        return n == 1; // if it's a power of 3, it should end up at 1
+
+        if (n <= 0) {
+            return false;
         }
-        return n == 1; // if it's a power of 3, it should end up at 1
+        while (n % 3 == 0) {
+            n /= 3;
+        }
+        if (n == 1) {
+            return true;
+        }
+        return false;
     }
 
 
