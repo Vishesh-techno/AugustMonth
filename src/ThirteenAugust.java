@@ -40,6 +40,14 @@ public class ThirteenAugust {
         return stack.isEmpty();
     }
 
+    public static int xorOperation(int n, int start) {
+        int xor = 0;
+        for (int i = 0; i < n; i++) {
+            xor ^= start + 2 * i;
+        }
+        return xor;
+    }
+
 
     public static void main(String[] args) {
         String str = "anagram";
@@ -48,5 +56,7 @@ public class ThirteenAugust {
 
         String str2 = "([)]";
         System.out.println(isValid(str2));
+
+        System.out.println(xorOperation(5, 0));
     }
 }
