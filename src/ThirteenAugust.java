@@ -48,6 +48,14 @@ public class ThirteenAugust {
         return xor;
     }
 
+    public static boolean isPowerOfThree(int n) {
+        if (n <= 0) return false; // powers of 3 are positive
+        while (n % 3 == 0) {
+            n /= 3; // keep dividing by 3
+        }
+        return n == 1; // if it's a power of 3, it should end up at 1
+    }
+
 
     public static void main(String[] args) {
         String str = "anagram";
@@ -58,5 +66,7 @@ public class ThirteenAugust {
         System.out.println(isValid(str2));
 
         System.out.println(xorOperation(5, 0));
+
+        System.out.println(isPowerOfThree(45));
     }
 }
