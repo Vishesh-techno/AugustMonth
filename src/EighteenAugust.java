@@ -3,7 +3,7 @@ import java.util.Map;
 
 class ListNode1 {
     int val;
-    ListNode next;
+    ListNode1 next;
 
     ListNode1(int val) {
         this.val = val;
@@ -18,7 +18,7 @@ public class EighteenAugust {
         for (int i = 0; i < nums.length; i++) {
             int lookupnumber = target - nums[i];
             if (map.containsKey(lookupnumber)) {
-                return new int[]{map.get(lookupnumber), i}; // Correct order
+                return new int[]{map.get(lookupnumber), i};
             }
             map.put(nums[i], i);
         }
@@ -26,9 +26,9 @@ public class EighteenAugust {
     }
 
     // ---------- Detect Cycle in Linked List ----------
-    public boolean hasCycle(ListNode head) {
-        ListNode slow = head;
-        ListNode fast = head;
+    public boolean hasCycle(ListNode1 head) {
+        ListNode1 slow = head;
+        ListNode1 fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
@@ -40,10 +40,10 @@ public class EighteenAugust {
     }
 
     // ---------- Reverse Linked List ----------
-    public ListNode reverseList(ListNode head) {
-        ListNode prev = null;
-        ListNode curr = head;
-        ListNode next;
+    public ListNode1 reverseList(ListNode1 head) {
+        ListNode1 prev = null;
+        ListNode1 curr = head;
+        ListNode1 next;
         while (curr != null) {
             next = curr.next;
             curr.next = prev;
@@ -53,9 +53,8 @@ public class EighteenAugust {
         return prev; // new head
     }
 
-
     public static void main(String[] args) {
-        TenAugust obj = new TenAugust();
+        EighteenAugust obj = new EighteenAugust();
 
         // --- Test Two Sum ---
         int[] nums = {2, 7, 11, 15};
@@ -65,8 +64,8 @@ public class EighteenAugust {
 
         // --- Test Reverse List ---
         ListNode1 head = new ListNode1(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
+        head.next = new ListNode1(2);
+        head.next.next = new ListNode1(3);
 
         head = obj.reverseList(head);
         System.out.print("Reversed Linked List: ");
@@ -77,12 +76,11 @@ public class EighteenAugust {
         System.out.println();
 
         // --- Test Has Cycle ---
-        ListNode cycleHead = new ListNode(1);
-        cycleHead.next = new ListNode(2);
-        cycleHead.next.next = new ListNode(3);
+        ListNode1 cycleHead = new ListNode1(1);
+        cycleHead.next = new ListNode1(2);
+        cycleHead.next.next = new ListNode1(3);
         cycleHead.next.next.next = cycleHead.next; // create cycle
 
         System.out.println("Has Cycle: " + obj.hasCycle(cycleHead));
     }
 }
-
